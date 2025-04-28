@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Farmacia Bouna Vita",
   description: "Farmacia Bouna Vita",
   keywords: ["Farmacia", "Bouna Vita", "Farmacia Bouna Vita"],
+  icons: {
+    icon: "/FarmaciaBuonaVitalogo.webp",
+  },
 };
 
 export default function RootLayout({

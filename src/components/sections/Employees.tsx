@@ -13,7 +13,7 @@ const Employees = () => {
       <div className="w-1/2">
         <picture className="w-full flex justify-center">
           <img
-            className="rounded-2xl w-8/12"
+            className="rounded-2xl w-8/12 drop-shadow-2xl border-t-4 border-b-4 border-[var(--primary)]"
             src="/enfermerosFarmacia.jpeg"
             alt="Enfermeros de la farmacia buona vita"
           />
