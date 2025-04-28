@@ -3,40 +3,34 @@ import { Button } from "./ui/button";
 
 const NavBar = () => {
   return (
-    <nav className="w-full bg-[var(--primary)] flex justify-around items-center">
+    <nav className="w-full bg-[var(--secondary)] flex justify-around items-center">
       <div>
-        <img src="/FarmaciaBuonaVitaLogo.png" alt="Logo" className="w-16 p-2" />
+        <picture>
+          <img
+            src="/FarmaciaBuonaVitaLogo.webp"
+            alt="Logo"
+            className="w-16 p-1 m-2 bg-[var(--primary)] rounded-full"
+          />
+        </picture>
       </div>
       <ul className="flex gap-4">
         <li>
-          <Button
-            variant="link"
-            className="cursor-pointer text-[var(--secondary)]"
-          >
+          <Button variant="link" className="cursor-pointer ">
             Empleados
           </Button>
         </li>
         <li>
-          <Button
-            variant="link"
-            className="cursor-pointer text-[var(--secondary)]"
-          >
+          <Button variant="link" className="cursor-pointer ">
             Clientes
           </Button>
         </li>
         <li>
-          <Button
-            variant="link"
-            className="cursor-pointer text-[var(--secondary)]"
-          >
+          <Button variant="link" className="cursor-pointer ">
             Sucursales
           </Button>
         </li>
         <li>
-          <Button
-            variant="link"
-            className="cursor-pointer text-[var(--secondary)]"
-          >
+          <Button variant="link" className="cursor-pointer ">
             Contactanos
           </Button>
         </li>
