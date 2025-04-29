@@ -17,7 +17,7 @@ export default function Home() {
           <Features />
         </div>
         <Clients />
-        <div className="w-10/12 bg-[var(--muted)] rounded-r-3xl">
+        <div className="w-10/12 bg-[var(--muted)] rounded-r-3xl rounded-bl-3xl mb-4">
           <BranchesOffice />
           <FormContact />
         </div>
