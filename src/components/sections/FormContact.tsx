@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 const FormContact = () => {
   return (
     <div className="w-full flex justify-center py-4">
-      <Card className="w-8/12 flex justify-center items-center">
+      <Card className="w-1/2 h-96 flex justify-center items-center">
         <CardHeader className="w-full text-center">
           <CardTitle>Contactanos</CardTitle>
         </CardHeader>
