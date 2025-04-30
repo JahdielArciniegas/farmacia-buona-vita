@@ -1,19 +1,36 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Link from "next/link";
+import { useState } from "react";
+import { EmailStore, useStore } from "@/store/store";
+import { redirect } from "next/navigation";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const [email, setEmail] = useState("");
+  const setUserEmail: (email: string) => void = useStore(
+    (state: EmailStore) => state.setEmail
+  );
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setUserEmail(email);
+    redirect("/");
+  };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <form>
+      <form onSubmit={handleLogin}>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="flex flex-col items-center gap-2 font-medium"
             >
               <div className="flex items-center justify-center">
@@ -26,7 +43,7 @@ export function LoginForm({
                 </picture>
               </div>
               <span className="sr-only">BuonaVita</span>
-            </a>
+            </Link>
             <h1 className="text-xl font-bold">Bienvenido a BuonaVita</h1>
           </div>
           <div className="flex flex-col gap-6">
@@ -36,6 +53,8 @@ export function LoginForm({
                 id="email"
                 type="email"
                 placeholder="m@ejemplo.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>

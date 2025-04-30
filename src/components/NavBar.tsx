@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import { Button } from "./ui/button";
+import { EmailStore, useStore } from "@/store/store";
 
 const NavBar = () => {
+  const email = useStore((state: EmailStore) => state.email);
+
   return (
     <nav className="w-full bg-[var(--secondary)] flex justify-around items-center">
       <div>
@@ -33,6 +38,15 @@ const NavBar = () => {
           <Button variant="link" className="cursor-pointer ">
             Contactanos
           </Button>
+        </li>
+        <li>
+          {email === "" ? (
+            <Button className="cursor-pointer ">Iniciar Sesión</Button>
+          ) : (
+            <Button variant="link" className="cursor-pointer ">
+              {email}
+            </Button>
+          )}
         </li>
       </ul>
     </nav>

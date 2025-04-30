@@ -17,7 +17,7 @@ const Hero = () => {
           <p className="w-80 text-center">
             Inicia sesión para poder contactarnos o acceder a nuestro app web
           </p>
-          <Link href="/">
+          <Link href="/login">
             <Button className="cursor-pointer">Iniciar Sesión</Button>
           </Link>
         </div>
