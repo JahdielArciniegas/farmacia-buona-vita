@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { EmailStore, useStore } from "@/store/store";
 import { redirect } from "next/navigation";
+import { login } from "@/service/login";
 
 export function LoginForm({
   className,
@@ -18,9 +19,11 @@ export function LoginForm({
     (state: EmailStore) => state.setEmail
   );
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setUserEmail(email);
+    const res = await login();
+    console.log(res);
     redirect("/");
   };
 
