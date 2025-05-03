@@ -15,11 +15,9 @@ const BranchesOffice = () => {
   const branches: Promise<
     {
       id: string;
-      nombreSucursal: string;
-      imagenesSucursal: string;
-      espacioSucursal: string;
-      estantesSucursal: string;
-      descripcion: string;
+      name: string;
+      description: string;
+      img: string;
     }[]
   > = getBranches();
   const allBranches = use(branches);
@@ -38,12 +36,12 @@ const BranchesOffice = () => {
                   <Card className="relative mx-32 h-[500px] w-[500px] overflow-hidden bg-transparent flex justify-center items-center">
                     <CardContent>
                       <img
-                        src={`/branches/${branche.imagenesSucursal}.webp`}
-                        alt={`Imagen de referencia a la farmacia ${branche.nombreSucursal}`}
+                        src={`/branches/${branche.img}`}
+                        alt={`Imagen de referencia a la farmacia ${branche.name}`}
                       />
                     </CardContent>
                   </Card>
-                  <p className="text-2xl">{branche.nombreSucursal}</p>
+                  <p className="text-2xl">{branche.name}</p>
                 </CarouselItem>
               );
             })}
