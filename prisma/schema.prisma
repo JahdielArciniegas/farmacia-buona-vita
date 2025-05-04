@@ -14,8 +14,58 @@ datasource db {
 }
 
 model Branche {
-  id          Int     @id @default(autoincrement())
+  id          Int         @id @default(autoincrement())
   name        String
   img         String
   description String?
+  employees   Employee[]
+  inventory   Inventory[]
+}
+
+model Employee {
+  id        Int     @id @default(autoincrement())
+  name      String
+  email     String  @unique
+  brancheId Int
+  branche   Branche @relation(fields: [brancheId], references: [id])
+  bills     Bill[]
+}
+
+model Bill {
+  id           Int            @id @default(autoincrement())
+  employee     Employee       @relation(fields: [employeeId], references: [id])
+  employeeId   Int
+  date         DateTime       @default(now())
+  billProducts BillProducts[]
+  cost         Float
+}
+
+model Product {
+  id           Int            @id @default(autoincrement())
+  name         String
+  price        Float
+  billProducts BillProducts[]
+  inventory    Inventory[]
+}
+
+model BillProducts {
+  id        Int     @id @default(autoincrement())
+  billId    Int
+  productId Int
+  amount    Int
+  bill      Bill    @relation(fields: [billId], references: [id])
+  products  Product @relation(fields: [productId], references: [id])
+
+  @@unique([billId, productId])
+}
+
+model Inventory {
+  id        Int     @id @default(autoincrement())
+  brancheId Int
+  productId Int
+  amount    Int
+  branche   Branche @relation(fields: [brancheId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@unique([brancheId, productId])
 }
